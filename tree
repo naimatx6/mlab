@@ -1,0 +1,49 @@
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class PreorderTraversal {
+    public void preorder(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        
+        System.out.print(node.val + " "); // Visit the current node
+        
+        preorder(node.left); // Recursively visit the left subtree
+        
+        preorder(node.right); // Recursively visit the right subtree
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        
+        PreorderTraversal traversal = new PreorderTraversal();
+        traversal.preorder(root);
+    }
+}
+Output:
+
+Copy code
+1 2 4 5 3
+In the above example, we define a TreeNode class to represent the nodes in the tree. Then we define a PreorderTraversal class that contains the preorder method that performs the Preorder traversal recursively.
+
+We create a sample binary tree with 5 nodes and call the preorder method on the root node to perform the traversal. The output shows the order in which the nodes are visited during the Preorder traversal.
+
+
+
+
